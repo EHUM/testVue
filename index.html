@@ -8,6 +8,16 @@
     <script src="./node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        {{message}}
+    </div>
 </body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Helloworld!'
+        }
+    })
+</script>
 </html>
