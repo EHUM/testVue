@@ -45,7 +45,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.date}}</td>
                 <td>
-                    <a href="#">删除</a>
+                    <a href="#" @click="delData(item, id)">删除</a>
                 </td>
             </tr>
         </table>
@@ -68,6 +68,12 @@
                 this.items.push(p);
                 this.id = 0;
                 this.name = '';
+            },
+            delData:function (id) {
+                var index = this.items.findIndex(function(item) {
+                    return item.id == id;
+                });
+                this.items.splice(index,1);
             }
         }
     })
