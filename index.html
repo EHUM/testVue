@@ -6,19 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./node_modules/vue/dist/vue.js"></script>
+    <style>
+        #tb {
+            width: 800px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        #tb th {
+            background-color: #0094ff;
+            color: white;
+            font-size: 16px;
+            padding: 5px;
+            text-align: center;
+            border: black solid 1px;
+        }
+        #tb td {
+            padding: 5px;
+            text-align: center;
+            border: black solid 1px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        {{message}}{{name}}{{hello}}
+        <table id="tb">
+            <tr>
+                <th>编号</th>
+                <th>品牌</th>
+                <th>日期</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="item in items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date}}</td>
+                <td>
+                    <a href="#">删除</a>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 <script type="text/javascript">
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Helloworld!',
-            name: 'HanYi~',
-            hello: 'Welcome to Vue!'
+            items:[
+                {id: 1, name: '宝马', date: new Date},
+                {id: 2, name: '奔驰', date: new Date}
+            ]
         }
     })
 </script>
