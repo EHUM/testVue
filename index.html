@@ -29,6 +29,9 @@
 </head>
 <body>
     <div id="app">
+        <input type="text" v-model="id">
+        <input type="text" v-model="name">
+        <button @click="addData">提交</button>
         <table id="tb">
             <tr>
                 <th>编号</th>
@@ -55,7 +58,17 @@
             items:[
                 {id: 1, name: '宝马', date: new Date},
                 {id: 2, name: '奔驰', date: new Date}
-            ]
+            ],
+            id: 0,
+            name: ''
+        },
+        methods: {
+            addData:function () {
+                var p = {id:this.id,name:this.name,date:new Date()}
+                this.items.push(p);
+                this.id = 0;
+                this.name = '';
+            }
         }
     })
 </script>
