@@ -49,9 +49,20 @@
                 </td>
             </tr>
         </table>
+        <!--      全局组件写法1 
+            <login>快来登录啊~</login> -->
+        
     </div>
 </body>
 <script type="text/javascript">
+
+    //全局组件写法1
+    // Vue.component('login',{
+    //     template:'<h1>快来登录~</h1>'
+    // });
+
+    //全局组件写法2
+   
     var app = new Vue({
         el: '#app',
         data: {
