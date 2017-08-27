@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>职业</th>
+            </tr>
+            <tr v-for="item in list">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.work}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+    <script>
+        var app = new Vue({
+            el : '#app',
+            data : {
+                list : [
+                    {
+                        id : 1,
+                        name : '韩义',
+                        age : 25,
+                        work : '美工'
+                    },
+                    {
+                        id : 2,
+                        name : '杨蕊嫣',
+                        age : 25,
+                        work : '客服'
+                    },
+                    {
+                        id : 3,
+                        name : '许彦霞',
+                        age : 54,
+                        work : null
+                    }
+                ]
+            }
+        })
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <input type="text" @keyup.enter="joinStr" v-model="Str">
+        <p>{{msg}}</p>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el : '#app',
+        data : {
+            msg : '请开始你的表演：',
+            Str : ''
+        },
+        methods : {
+            joinStr : function () {
+                this.msg += this.Str;
+                this.Str = '';
+            }
+        }
+    })
+</script>
+</html>

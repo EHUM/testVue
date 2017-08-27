@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-show实例
+        <div v-show="isLogin">
+            你好，{{msg}}
+        </div> -->
+
+        <div v-if="isLogin">
+            你好，{{msg}}
+        </div>
+    </div>
+</body>
+    <!--  v-show实例
+        <script>
+        var app = new Vue({
+            el : '#app',
+            data: {
+                msg : 'EHUM!',
+                isLogin: true
+            }
+        })
+    </script> -->
+
+    <script>
+        var app = new Vue({
+            el : '#app',
+            data: {
+                msg : 'EHUM!',
+                isLogin : true
+            }
+        })
+    </script>
+</html>
