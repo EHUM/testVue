@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component :is="tep"></component>
+        <button @click="changeTmp">Change</button>
+    </div>
+</body>
+<script>
+    var ehumA = {
+        template:`
+            <p style="color: red;">Cc前端韩</p>
+        `
+    };
+    var ehumB = {
+        template:`
+            <p style="color: yellow;">Cc前端韩</p>
+        `
+    };
+    var ehumC = {
+        template:`
+            <p style="color: green;">Cc前端韩</p>
+        `
+    };
+    var nav = new Vue({
+        el: '#app',
+        data: {
+            tep: 'ehumtmpC'
+        },
+        components: {
+            'ehumtmpA': ehumA, 
+            'ehumtmpB': ehumB, 
+            'ehumtmpC': ehumC 
+        },
+        methods: {
+            changeTmp: function() {
+                if(this.tep == 'ehumtmpA') {
+                    this.tep = 'ehumtmpB';
+                }else if(this.tep == 'ehumtmpB') {
+                    this.tep = 'ehumtmpC';
+                }else {
+                    this.tep = 'ehumtmpA';
+                }
+            }
+        }
+    })
+</script>
+</html>

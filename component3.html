@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ehum></ehum>
+    </div>
+</body>
+<script>
+    var city = {
+        template: `
+            <p>ChangChun if China</p>
+        `
+    };
+
+    var ehumTemplate = {
+        template: `
+            <h2 style="color: red;">
+                Cc前端韩
+                <city></city>
+            </h2>
+        `,
+        components: {
+            'city': city
+        }
+    };
+    
+    var nav = new Vue({
+        el: '#app',
+        components: {
+            'ehum':ehumTemplate
+        }
+    })
+</script>
+</html>

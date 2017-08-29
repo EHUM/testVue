@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p><input type="text" v-model="msg"></p>
+        <div v-ehum="color">
+            {{msg}}
+        </div>
+    </div>
+</body>
+<script>
+    Vue.directive("ehum",{
+        update:function(el, binding){
+            el.style = "color:" + binding.value;
+            console.log("Updated!");
+        }
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Helloworld!',
+            color: 'red'
+        }
+    })
+</script>
+</html>
