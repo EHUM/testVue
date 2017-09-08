@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>标题</th>
+                <th>日期</th>
+            </tr>
+            <tr v-for="item in reList">
+                <td>{{item.title}}</td>
+                <td>{{item.date}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+var vm = new Vue({
+    el: '#app',
+    data: {
+        newList: [
+            {title: '没时间吃饭吃饼干习近平出访忙到日程以分钟计', date: '2017/8/15'},
+            {title: '20省份公布医保目录调整方案 36品种纳入报销范围', date: '2017/8/16'},
+            {title: '一次换掉四人！奥迪壮士断腕 董事会“大洗牌”', date: '2017/8/17'}
+        ]
+    },
+    computed: {
+        reList: function(){
+            return this.newList.reverse();
+        }
+    }
+})
+</script>
+</html>

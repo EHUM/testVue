@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click="numAdd(2)">Add</button>
+        <btn @click.native="numAdd()"></btn>
+    </div>
+    <button onclick="mv.numAdd(10)">outAdd</button>
+</body>
+<script>
+    var btn = {
+        template: `
+            <button>tmpAdd</button>
+        `
+    }
+    var mv = new Vue({
+        el: '#app',
+        data: {
+            num: 0
+        },
+        components: {
+            'btn': btn
+        },
+        methods: {
+            numAdd: function(score){
+                if(score){
+                    return this.num += score;
+                }else{
+                    return this.num++;
+                }
+            }
+        }
+    })
+</script>
+</html>

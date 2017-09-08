@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{temperature}}</p>
+        <p>{{dressing}}</p>
+        <p>
+            <button @click="increaseTpt">增加温度</button>
+            <button @click="reduceTpt">减少温度</button>
+        </p>
+    </div>
+</body>
+<script>
+var dressingIndex = ['T恤短袖', '夹克长裙', '棉衣羽绒服'];
+
+var mv = new Vue({
+    el: '#app',
+    data: {
+        temperature: 17,
+        dressing: dressingIndex[1]
+    },
+    methods: {
+        increaseTpt: function() {
+            this.temperature += 2;
+        },
+        reduceTpt: function() {
+            this.temperature -= 2;
+        }
+    },
+    watch: {
+        temperature: function(newval, oldval) {
+            if(newval >= 18){
+                this.dressing = dressingIndex[0];
+            }else if(newval <= 1) {
+                this.dressing = dressingIndex[2];
+            }else {
+                this.dressing = dressingIndex[1];
+            }
+        }
+    }
+})
+</script>
+</html>
